@@ -1,0 +1,8 @@
+import javax.tools.ToolProvider
+
+// #######################
+// ### Global settings ###
+// #######################
+
+//Make sure JAVA_HOME is set as an environment variable
+ext.javaToolsJar = ((URLClassLoader) ToolProvider.getSystemToolClassLoader()).getURLs()

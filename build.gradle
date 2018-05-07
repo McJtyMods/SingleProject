@@ -1,0 +1,12 @@
+apply plugin: 'base' // To add "clean" task to the root project.
+apply from: 'configuration.gradle'
+
+subprojects {
+    apply from: rootProject.file('common.gradle')
+}
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+subprojects.each { subproject -> evaluationDependsOn(subproject.path) }

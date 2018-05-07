@@ -1,0 +1,97 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven'
+
+repositories {
+    maven { // The repo from which to get waila
+        name "Mobius Repo"
+        url "https://tehnut.info/maven"
+        //url "http://mobiusstrip.eu/maven"
+    }
+    maven { // JEI
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        name 'OC Repo'
+        url "http://maven.cil.li/"
+    }
+    maven { // TOP
+        name 'tterrag maven'
+        url "https://maven.tterrag.com/"
+    }
+    maven { // McJtyLib
+        url "http://maven.k-4u.nl"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+    maven {
+        name = "CoFH Maven"
+        url = "http://maven.covers1624.net"
+    }
+    maven { // Charset
+        name = "Elytra Maven"
+        url = "https://repo.elytradev.com"
+    }
+}
+
+minecraft {
+    version = "${minecraft_version}-${forge_version}"
+    runDir = "run"
+    mappings = mcp_mappings
+    useDepAts = true
+}
+
+dependencies {
+    deobfCompile "mezz.jei:jei_${jei_version}"
+    deobfCompile "mcp.mobius.waila:Hwyla:${waila_version}"
+    deobfCompile "mcjty.theoneprobe:TheOneProbe-${top_version}"
+    deobfCompile "cofh:RedstoneFlux:${redstoneflux_version}"
+
+    deobfCompile "com.github.mcjty:intwheel:${intwheel_version}"
+
+    compile project(':McJtyLib')
+    compile project(':RFTools')
+    compile project(':LostCities')
+    compile project(':RFToolsControl')
+    compile project(':RFToolsDimensions')
+    compile project(':RFToolsPower')
+    compile project(':NeedToBreathe')
+    compile project(':AquaMunda')
+    compile project(':DeepResonance')
+    compile project(':EFab')
+    compile project(':GearSwapper')
+    compile project(':ImmersiveCraft')
+    compile project(':MeeCreeps')
+    compile project(':Nice')
+    compile project(':NotEnoughWands')
+    compile project(':QuestUtils')
+    compile project(':Restrictions')
+    compile project(':RFLux')
+    compile project(':XNet')
+
+    compile "li.cil.oc:OpenComputers:${oc_version}"
+}
+
+jar {
+    manifest {
+        attributes 'FMLAT': 'common_at.cfg'
+    }
+}
