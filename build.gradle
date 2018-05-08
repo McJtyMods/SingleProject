@@ -9,4 +9,8 @@ repositories {
     mavenCentral()
 }
 
+task settings {
+    project.ext.singleproject = true
+}
+
 subprojects.each { subproject -> evaluationDependsOn(subproject.path) }
