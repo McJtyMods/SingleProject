@@ -2,6 +2,7 @@ git clone https://github.com/McJty/RFTools.git
 git clone https://github.com/McJty/RFToolsControl.git
 git clone https://github.com/McJty/RFToolsPower.git
 git clone https://github.com/McJty/RFToolsDimensions.git
+git clone https://github.com/McJty/ElementalDimensions.git
 git clone https://github.com/McJty/McJtyLib.git
 git clone https://github.com/McJty/XNet.git
 git clone https://github.com/McJty/Nice.git
